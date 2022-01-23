@@ -51,6 +51,7 @@ systemctl status Nginx
 ### References : 
 [DVWA+Modsecurity on Nginx and Apache](https://ranggaputrapertamapp.medium.com/modsecurity-for-securing-dvwa-served-by-apache2-or-nginx-in-ubuntu-20-04-8e8ce58222a0)
 [Set-Up Modsecurity](https://www.tecmint.com/install-modsecurity-nginx-debian-ubuntu/)
+[Nginx Modsec Documentation](https://docs.nginx.com/nginx-waf/admin-guide/nginx-plus-modsecurity-waf-installation-logging/)
 
 ## Ansible Playbook
 
