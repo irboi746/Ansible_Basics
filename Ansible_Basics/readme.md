@@ -3,6 +3,8 @@
 * It will include : 
    * [how to set up control and managed node](#Setting-Up)
    * [install packages on managed node](#Installing-Packages-on-Managed-Node)
+       * [ad-hoc commands](#Using-ad-hoc-commands)
+       * [playbook](#Using-Playbook) 
    * change configurations in managed node. 
 
 # Setting Up
@@ -123,6 +125,7 @@ ansible webserver -m user -a 'name=test password="$5$u2Ns.7JsOoPUCBfh$jpVxnZ66Ak
 ```
 
 ### Installing packages with "apt"
+* below is an example of installing packages. Commands to remove and update packages are in the reference link provided.
 ```
 #example
 ansible webserver -m apt -a "name=mlocate state=present" -b -K
@@ -135,7 +138,32 @@ ansible webserver -m apt -a "name=mlocate state=present" -b -K
 * [managing packages](https://docs.ansible.com/ansible/2.5/user_guide/intro_adhoc.html#managing-packages)
 
 ## Using Playbook
+* At a basic level, playbooks can be used to manage configurations of and deployments to remote machines.
+* It is a set of instructions to tell ansible what to do much like a bash script.
+* Playbooks are in YAML format. Wihtin one playbook it can contain multiple plays.
 
+### Playbook Format
+#### Basic Format
+```
+- 
+   name : {name of playbook}
+   hosts : {group name, IP addresses or FQDN}
+   tasks :
+      - name : {name for task} 
+      - {task : command, script, apt, service} : {parameters needed}
+```
+#### Example 
+```
+- 
+   name : install LAMP stack
+   hosts : webserver
+   tasks : 
+      - name : install apache
+        apt : 
+           name : 
+           state : present
+```
 
-
+### References
+[Playbook Basics](https://www.youtube.com/watch?v=Z01b9QZG0D0)
 
