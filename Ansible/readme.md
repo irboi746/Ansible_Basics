@@ -184,4 +184,5 @@ anisble-playbook {path to `yaml`} -K
 ### References : 
 * [Playbook Basics](https://www.youtube.com/watch?v=Z01b9QZG0D0)
 * [Intro to Playbooks](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html)
-
+* [Roles and Vars](https://docs.ansible.com/ansible/latest/user_guide/guide_rolling_upgrade.html#reusable-content-roles)
+* [Roles and Vars 2](https://www.youtube.com/watch?v=jZep1jU396g)
