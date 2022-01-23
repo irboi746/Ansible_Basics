@@ -171,7 +171,7 @@ ansible webserver -m apt -a "name=mlocate state=present" -b -K
 
 ### Executing Playbook
 1. `YAML` file can be saved anywhere.
-2. Commands to run : 
+2. Commands to run playbook: 
 ```
 anisble-playbook {path to `yaml`} -K 
 ```
