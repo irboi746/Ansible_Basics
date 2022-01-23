@@ -37,7 +37,16 @@ sudo tail -f var/log/apache2/modsec_audit.log
 [Setting Up DVWA with Modsecurity](https://digi.ninja/blog/modsecurity_lab.php)
 
 ## Nginx Set-Up
-
+### Step 1 : DVWA set up
+* This is a continuation from apache2 set-up above. 
+* I will be installing Nginx on the same server and point DVWA to it as per the guide below.
+* Install Nginx ： 
+```
+systemctl stop apache2
+sudo apt install Nginx
+# Check if Nginx is Running
+systemctl status Nginx
+```
 
 ### References : 
 [DVWA+Modsecurity on Nginx and Apache](https://ranggaputrapertamapp.medium.com/modsecurity-for-securing-dvwa-served-by-apache2-or-nginx-in-ubuntu-20-04-8e8ce58222a0)
