@@ -2,7 +2,7 @@
 * This is a personal documentation on how to use ansible to automate certain processes.
 * It will include : 
    * [how to set up control and managed node](#Setting-Up)
-   * install packages on managed node
+   * [install packages on managed node](#Installing-Packages-on-Managed-Node)
    * change configurations in managed node. 
 
 # Setting Up
@@ -12,7 +12,6 @@
 * For most managed nodes, Ansible makes a connection over SSH and transfers modules using SFTP. If SSH works but SFTP is not available on some of your managed nodes, you can switch to SCP
 
 ### Steps 
-### TL;DR
 #### 1. Set up Fedora (Desktop or Server)
 * start sshd service
 ```
@@ -28,12 +27,26 @@ sudo dnf install ansible
 * Ansible reads information about which machines you want to manage from your inventory.
 * Basic Inventory can be created by editing the `/etc/ansible/host` file. 
 * IP addresses and domain names (FQDN) can be added into the inventory.
+* By default, Ansible uses native OpenSSH and connects to remote machines using your current user name.
+* Method 2 will allow you to use a different username to login
+ 
 ```
-echo 'host IP or FQDN' >> /etc/ansible/hosts
+# by adding [group name] we can call
+echo '[group name]' >> /etc/ansible/hosts
+
+# method 1
+echo '{Managed Node IP or FQDN}' >> /etc/ansible/hosts
+
+# method 2
+echo '{Managed Node IP} ansible_connection=ssh ansible_user={managed-node username}' >> /etc/ansible/hosts
 ```
 * check is hosts are added 
 ```
+# method 1
 ansible --list-host all
+
+# method 2
+ansible --list-host {group name}
 ```
 
 #### 4. Connecting to remote nodes
@@ -54,8 +67,21 @@ ssh-copy-id [username]@[ip addres of node]
 ansible all -m ping
 ```
 
-* By default, Ansible uses native OpenSSH and connects to remote machines using your current user name, just as SSH does.
-* However, the above way of adding user in step 3 will allow ansible to use that specific username to connect to the ssh. 
+### Script to put all the above together
+* Run this and connect all the managed node to control node
+```
+/bin/systemctl start sshd.service
+```
+* After using managed node to connect to Control Node
+```
+#!/bin/sh
+dnf install ansible
+echo '[group name]' >> /etc/ansible/hosts
+echo 'host IP or FQDN' >> /etc/ansible/hosts
+ssh-keygen -t rsa
+ssh-copy-id [username]@[ip addres of node]
+ansible [groupname] -m ping
+```
 
 ### References : 
 * [Ansible Installation](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
@@ -64,6 +90,27 @@ ansible all -m ping
 * [Connecting to Remote Node 2](https://www.youtube.com/watch?v=d6jTzve7mFY)
 
 # Installing Packages on Managed Node
+## Using ad-hoc commands
+* An Ansible ad hoc command uses the /usr/bin/ansible command-line tool to automate a single task on one or more managed nodes.
+* ad hoc commands are quick and easy, but they are not reusable.
+* Basic Usage : 
+```
+# format
+ansible {group name} -m {module} -a {arguments}
+
+# example : the below will open a shell and list /home
+ansible webserver -m shell -a 'ls /home' 
+
+# running as root
+*** Password prompt will appear
+# format 
+ansible {group name} -m {module} -a {arguments} -b -K 
+
+# example : the below will prompt for a password for root and open a root shell after authentication and list /etc 
+ansible webserver -m shell -a 'ls /etc'-b -K
+```
+
+## Using Playbook
 
 
 
