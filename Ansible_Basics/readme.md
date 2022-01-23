@@ -122,10 +122,17 @@ ansible {group name} -m user -a 'name={username} password="{hash generated}"' -b
 ansible webserver -m user -a 'name=test password="$5$u2Ns.7JsOoPUCBfh$jpVxnZ66AkWqd9yIGyUgIsvFbJA1I/jlWsq3FpawyE4"' -b -K 
 ```
 
+### Installing packages with "apt"
+```
+#example
+ansible webserver -m apt -a "name=mlocate state=present" -b -K
+```
+
 ### References : 
 * [ad-hoc command basics](https://www.middlewareinventory.com/blog/ansible-ad-hoc-commands/#ex5)
 * [ad-hoc command create users 1](https://www.middlewareinventory.com/blog/ansible-ad-hoc-commands)
 * [ad-hoc command create users 2](https://www.youtube.com/watch?v=pr0ZA6pw-jU)
+* [managing packages](https://docs.ansible.com/ansible/2.5/user_guide/intro_adhoc.html#managing-packages)
 
 ## Using Playbook
 
