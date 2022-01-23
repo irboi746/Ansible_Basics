@@ -93,7 +93,7 @@ ansible [groupname] -m ping
 ## Using ad-hoc commands
 * An Ansible ad hoc command uses the /usr/bin/ansible command-line tool to automate a single task on one or more managed nodes.
 * ad hoc commands are quick and easy, but they are not reusable.
-* Basic Usage : 
+### Basic Usage : 
 ```
 # format
 ansible {group name} -m {module} -a {arguments}
@@ -109,6 +109,23 @@ ansible {group name} -m {module} -a {arguments} -b -K
 # example : the below will prompt for a password for root and open a root shell after authentication and list /etc 
 ansible webserver -m shell -a 'ls /etc'-b -K
 ```
+### Creating Users
+```
+# create password hash on control node 
+mkpasswd --method=sha-256 
+
+# create user with ansible ad-hoc command
+# format 
+ansible {group name} -m user -a 'name={username} password="{hash generated}"' -b -K 
+
+#example
+ansible webserver -m user -a 'name=test password="$5$u2Ns.7JsOoPUCBfh$jpVxnZ66AkWqd9yIGyUgIsvFbJA1I/jlWsq3FpawyE4"' -b -K 
+```
+
+### References : 
+* [ad-hoc command basics](https://www.middlewareinventory.com/blog/ansible-ad-hoc-commands/#ex5)
+* [ad-hoc command create users 1](https://www.middlewareinventory.com/blog/ansible-ad-hoc-commands/#Ansible_ad_hoc_commands_Syntax)
+* [ad-hoc command create users 2](https://www.youtube.com/watch?v=pr0ZA6pw-jU)
 
 ## Using Playbook
 
