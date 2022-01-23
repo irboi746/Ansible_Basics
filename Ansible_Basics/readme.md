@@ -4,7 +4,8 @@
    * [how to set up control and managed node](#Setting-Up)
    * [install packages on managed node](#Installing-Packages-on-Managed-Node)
        * [ad-hoc commands](#Using-ad-hoc-commands)
-       * [playbook](#Using-Playbook) 
+       * [playbook basics](#Playbook-Basics)
+       * [playbook advanced](#Playbook-Advanced) 
    * change configurations in managed node. 
 
 # Setting Up
@@ -142,8 +143,8 @@ ansible webserver -m apt -a "name=mlocate state=present" -b -K
 * It is a set of instructions to tell ansible what to do much like a bash script.
 * Playbooks are in YAML format. Wihtin one playbook it can contain multiple plays.
 
-### Playbook Format
-#### Basic Format
+### Playbook Basics 
+#### Format
 ```
 - 
    name : {name of playbook}
@@ -175,6 +176,10 @@ ansible webserver -m apt -a "name=mlocate state=present" -b -K
 ```
 anisble-playbook {path to `yaml`} -K 
 ```
+
+### Playbook Advanced
+#### Roles
+#### Vars
 
 ### References : 
 * [Playbook Basics](https://www.youtube.com/watch?v=Z01b9QZG0D0)
