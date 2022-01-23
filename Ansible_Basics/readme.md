@@ -147,6 +147,7 @@ ansible webserver -m apt -a "name=mlocate state=present" -b -K
 ```
 - 
    name : {name of playbook}
+   become : {true or false}
    hosts : {group name, IP addresses or FQDN}
    tasks :
       - name : {name for task} 
@@ -156,14 +157,26 @@ ansible webserver -m apt -a "name=mlocate state=present" -b -K
 ```
 - 
    name : install LAMP stack
+   become : true
    hosts : webserver
    tasks : 
-      - name : install apache
+      - name : install apache2
         apt : 
-           name : 
+           name : apache2
            state : present
+      
+      - name : allow apache in ufw
+        command : ufw allow in "Apache"
 ```
 
-### References
+### Executing Playbook
+1. `YAML` file can be saved anywhere.
+2. Commands to run : 
+```
+anisble-playbook {path to `yaml`} -K 
+```
+
+### References : 
 [Playbook Basics](https://www.youtube.com/watch?v=Z01b9QZG0D0)
+[Intro to Playbooks](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html)
 
