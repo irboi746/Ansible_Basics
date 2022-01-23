@@ -177,6 +177,6 @@ anisble-playbook {path to `yaml`} -K
 ```
 
 ### References : 
-[Playbook Basics](https://www.youtube.com/watch?v=Z01b9QZG0D0)
-[Intro to Playbooks](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html)
+* [Playbook Basics](https://www.youtube.com/watch?v=Z01b9QZG0D0)
+* [Intro to Playbooks](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html)
 
