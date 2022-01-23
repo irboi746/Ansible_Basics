@@ -124,7 +124,7 @@ ansible webserver -m user -a 'name=test password="$5$u2Ns.7JsOoPUCBfh$jpVxnZ66Ak
 
 ### References : 
 * [ad-hoc command basics](https://www.middlewareinventory.com/blog/ansible-ad-hoc-commands/#ex5)
-* [ad-hoc command create users 1](https://www.middlewareinventory.com/blog/ansible-ad-hoc-commands/#Ansible_ad_hoc_commands_Syntax)
+* [ad-hoc command create users 1](https://www.middlewareinventory.com/blog/ansible-ad-hoc-commands)
 * [ad-hoc command create users 2](https://www.youtube.com/watch?v=pr0ZA6pw-jU)
 
 ## Using Playbook
