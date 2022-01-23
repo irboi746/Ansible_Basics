@@ -1,6 +1,10 @@
 # Modsecurity WAF
 * The below guide will teach us how to install modsecurity for both Apache and Nginx web servers. 
-* For the Apache set-up I will be installing DVWA into it.
+   * [Apache](#Apache-Set-Up)
+   * [Nginx](#Nginx-Set-Up)
+
+### References : 
+[DVWA+Modsecurity on Nginx and Apache](https://ranggaputrapertamapp.medium.com/modsecurity-for-securing-dvwa-served-by-apache2-or-nginx-in-ubuntu-20-04-8e8ce58222a0)
 
 ## Apache Set-Up
 ### DVWA set up
