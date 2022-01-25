@@ -32,9 +32,9 @@ sudo tail -f var/log/apache2/modsec_audit.log
 * to be continued : [Set-Up ModSecurity](https://phoenixnap.com/kb/setup-configure-modsecurity-on-apache)
 
 ### References : 
-[DVWA set-up](https://medium.datadriveninvestor.com/setup-install-dvwa-into-your-linux-distribution-d76dc3b80357)
-[Set-Up ModSecurity](https://phoenixnap.com/kb/setup-configure-modsecurity-on-apache)
-[Setting Up DVWA with Modsecurity](https://digi.ninja/blog/modsecurity_lab.php)
+* [DVWA set-up](https://medium.datadriveninvestor.com/setup-install-dvwa-into-your-linux-distribution-d76dc3b80357)
+* [Set-Up ModSecurity](https://phoenixnap.com/kb/setup-configure-modsecurity-on-apache)
+* [Setting Up DVWA with Modsecurity](https://digi.ninja/blog/modsecurity_lab.php)
 
 ## Nginx Set-Up
 ### Step 1 : DVWA set up
@@ -54,6 +54,7 @@ systemctl status Nginx
 * [Nginx Modsec Documentation](https://docs.nginx.com/nginx-waf/admin-guide/nginx-plus-modsecurity-waf-installation-logging/)
 * [Nginx_ModSec_Installation_Doc](https://www.nginx.com/blog/compiling-and-installing-modsecurity-for-open-source-nginx/)
 
-## Ansible Playbook
+## scripts
+* Attached in this folder are scripts that are used for deploying WAF based on the technology used.
 
 
