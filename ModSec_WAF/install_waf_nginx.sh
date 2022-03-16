@@ -26,7 +26,7 @@ nginx -t
 
 # Load Module into nginx.conf (works)
 cp /etc/nginx/nginx.conf ~/nginx.conf
-sed -i -e '1iload_module /etc/nginx/modules-available/"ngx_http_modsecurity_module.so";\' ~/nginx.conf
+sed -i -e '1iload_module /etc/nginx/modules-available/ngx_http_modsecurity_module.so;\' ~/nginx.conf
 cp -f ~/nginx.conf /etc/nginx/nginx.conf
 rm -rf ~/nginx.conf
 
